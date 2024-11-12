@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO LIST</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="cima">
+            <div class="imagem">
+        <img src="https://images.ctfassets.net/n80ui2xgiaml/6POH36zaJYxXTyjmBSOKtb/8c75ffc935f549d07110fa41ab104e69/Brasoes-IFPR.png?w=300&q=100" alt="Imagem" height="75" width="75" >
+            </div>
+            <div class="titulo">
+        <h1>To Do List IFPR</h1>
+            </div>    
+        </div>
+        
+        <div class="input">
+            <input type="text" id="input-barrinha" placeholder="Atividade">
+            <select id="prioridade">
+                <option value="Alta"></option>
+                <option value="Média"></option>
+                <option value="Baixa"></option>
+            </select>
+            <button onclick="AdicionaTarefa()">Adicionar</button>
+        </div>   
+        <ul id="ListaAtividade"></ul>
+        <footer>
+            <p>Dupla:Jhoe Erick e Gustavo Prechlak   |  <a href="#">Github</a></p>
+        </footer>
+    </div>
+        
+</body>
+<script src="script.js"></script>
+</html>
