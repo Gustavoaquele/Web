@@ -25,3 +25,83 @@ body {
     display: flex;
     justify-content: right;
 }
+
+.input{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input, select{
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    flex: 1;
+}
+
+button{
+    background-color: rgb(46, 185, 46);
+    color: #000000;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button:hover{
+    background-color: rgb(65, 247, 65);
+}
+
+ul{
+    list-style-type: none;
+    padding: 0;
+}
+li{
+    background-color: #ddd;
+    padding: 10px ;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+
+}
+
+footer{
+    text-align: center;
+    margin-top: 20px;
+}
+footer a{
+    color: rgb(46, 185, 46);
+}
+footer a:hover{
+    text-decoration: underline;
+}
+
+.modal{
+    display: none;
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    justify-content:center;
+    align-items: center;
+    z-index: 1000;
+
+}
+
+.modal-conteudo{
+    background: #ddd;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+button{
+    margin: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
