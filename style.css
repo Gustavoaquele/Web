@@ -105,3 +105,27 @@ button{
     padding: 10px 20px;
     cursor: pointer;
 }
+
+
+
+
+
+
+
+
+
+/* Estilos iniciais para as prioridades */
+.Alta {
+    background-color: #e0f7e9; /* Verde claro */
+    border-left: 5px solid #28a745;
+}
+
+.Media {
+    background-color: #fff7e0; /* Amarelo claro */
+    border-left: 5px solid #ffc107;
+}
+
+.Baixa {
+    background-color: #fdecea; /* Vermelho claro */
+    border-left: 5px solid #dc3545;
+}

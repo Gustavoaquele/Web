@@ -65,3 +65,55 @@ function AdicionarTarefa(){
             default: return '';
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    function changePriority(taskItem) {
+        if (taskItem.classList.contains('Alta')) {
+            taskItem.classList.remove('Alta');
+            taskItem.classList.add('Media');
+        } else if (taskItem.classList.contains('Media')) {
+            taskItem.classList.remove('Media');
+            taskItem.classList.add('Baixa');
+        } else if (taskItem.classList.contains('Baixa')) {
+            taskItem.classList.remove('Baixa');
+            taskItem.classList.add('Alta');
+        }
+    }
+    function removeTask(button) {
+        const taskItem = button.parentElement.parentElement;
+        taskItem.remove();
+    }
+    
+    function completeTask(button) {
+        const taskItem = button.parentElement.parentElement;
+        taskItem.style.textDecoration = "line-through";
+    }
+    function editTask(button) {
+        const taskItem = button.parentElement.parentElement;
+        const taskText = taskItem.querySelector("span").textContent;
+        const newTask = prompt("Editar tarefa:", taskText);
+        if (newTask !== null && newTask.trim() !== "") {
+            taskItem.querySelector("span").textContent = newTask.trim();
+        }
+    }
+    
+    
