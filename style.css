@@ -4,8 +4,8 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: linear-gradient(#f8f9fa 70%,rgb(46, 185, 46));
-} 
+    background-image: linear-gradient(#f8f9fa 70%, rgb(46, 185, 46));
+}
 
 .container {
     width: 600px;
@@ -16,48 +16,52 @@ body {
     border-radius: 8px;
 }
 
-.cima{
+.header {
     display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
-
-.titulo{
-    display: flex;
-    justify-content: right;
+.title h1 {
+    font-size: 24px;
+    color: rgb(46, 185, 46);
 }
 
-.input{
+.input-section {
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
 }
 
-input, select{
+input, select {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
     flex: 1;
 }
 
-button{
+button {
     background-color: rgb(46, 185, 46);
-    color: #000000;
+    color: #fff;
     border: none;
     padding: 10px 15px;
     border-radius: 4px;
     cursor: pointer;
 }
-button:hover{
+
+button:hover {
     background-color: rgb(65, 247, 65);
 }
 
-ul{
+ul {
     list-style-type: none;
     padding: 0;
 }
-li{
-    background-color: #ddd;
-    padding: 10px ;
+
+li {
+    background-color: #f9f9f9;
+    padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
     display: flex;
@@ -65,67 +69,66 @@ li{
     align-items: center;
     margin-bottom: 10px;
     cursor: pointer;
-
 }
 
-footer{
+footer {
     text-align: center;
     margin-top: 20px;
 }
-footer a{
+
+footer a {
     color: rgb(46, 185, 46);
 }
-footer a:hover{
+
+footer a:hover {
     text-decoration: underline;
 }
 
-.modal{
+/* Modal */
+.modal {
     display: none;
-    position:fixed;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: #000000;
-    justify-content:center;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
     align-items: center;
     z-index: 1000;
-
 }
 
-.modal-conteudo{
-    background: #ddd;
+.modal-content {
+    background: #fff;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 8px;
     text-align: center;
 }
-
-button{
-    margin: 10px;
-    padding: 10px 20px;
-    cursor: pointer;
+/* Estilos de prioridade */
+.priority-high {
+    background-color: #fdecea; /* Vermelho claro */
+    border-left: 5px solid #dc3545;
 }
 
-
-
-
-
-
-
-
-
-/* Estilos iniciais para as prioridades */
-.Alta {
-    background-color: #e0f7e9; /* Verde claro */
-    border-left: 5px solid #28a745;
-}
-
-.Media {
+.priority-medium {
     background-color: #fff7e0; /* Amarelo claro */
     border-left: 5px solid #ffc107;
 }
 
-.Baixa {
-    background-color: #fdecea; /* Vermelho claro */
-    border-left: 5px solid #dc3545;
+.priority-low {
+    background-color: #e0f7e9; /* Verde claro */
+    border-left: 5px solid #28a745;
+}
+
+/* Botões de ação */
+.actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0 5px;
+}
+
+.actions button:hover {
+    opacity: 0.7;
 }

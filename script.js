@@ -1,119 +1,68 @@
-const modal = document.getElementById('modal-confirm');
-const confirmBtn = document.getElementById('btn-confirm');
-const negBtn = document.getElementById('btn-negar');
-let actionToConfirm=null;
+// Adicionar uma nova tarefa
+function addTask() {
+    const taskInput = document.getElementById("task-input");
+    const prioritySelect = document.getElementById("priority-select");
+    const taskList = document.getElementById("task-list");
 
-function AbrirModal(message,action){
-    modal.style.display='flex';
-    document.getElementById('mensagem-modal').textContent = message;
-    actionToConfirm = action;
-}
+    const taskText = taskInput.value.trim();
+    const priority = prioritySelect.value;
 
-function FecharModal(){
-    modal.style.display='none';
-    actionToConfirm=null;
-}
-
-function ConfirmAction(){
-    if (actionToConfirm){
-        actionToConfirm();
-        FecharModal();
-    }
-}
-
-confirmBtn.addEventListener('click',ConfirmAction);
-negBtn.addEventListener('click',FecharModal);
-
-function AdicionarTarefa(){
-    const inputBarrinha = document.getElementById("input-barrinha");
-    const SelectPrioridade = document.getElementById("prioridade");
-    const ListaTarefa = document.getElementById("ListaAtividade");
-
-    const TextoInput = inputBarrinha.ariaValueMax.trim();
-    const prioridade = SelectPrioridade.value;
-    
-    if (TextoInput === ""){
-        alert("Por favor insira uma atividade!");
+    if (taskText === "") {
+        alert("Por favor, insira uma atividade!");
         return;
-
     }
-    const li =document.createElement("li");
-    li.className = getPriorityClass(prioridade);
+
+    // Criar novo item de tarefa
+    const li = document.createElement("li");
+    li.className = getPriorityClass(priority); // Adicionar classe com cor baseada na prioridade
 
     li.innerHTML = `
-        <span>${TextoInput}</span>
-        <div class="Acao">
-            <button onclick="editTask(this)">✏</button>
-            <button onclick="RemoveTask(this)">❌ </button>
-            <button onclick="CompleteTask(this)"> ✅</button>
+        <span>${taskText}</span>
+        <div class="actions">
+            <button onclick="editTask(this)">✏️</button>
+            <button onclick="removeTask(this)">❌</button>
+            <button onclick="completeTask(this)">✅</button>
         </div>
-        `;
+    `;
 
-        li.addEventListener('click',function(){
-            changePriority(li);
-        })
+    taskList.appendChild(li);
+    taskInput.value = "";
+}
 
-        ListaTarefa.appendChild(li);
-        inputBarrinha.value = "";
+// Definir a classe com base na prioridade
+function getPriorityClass(priority) {
+    switch (priority) {
+        case "Alta":
+            return "priority-high";
+        case "Média":
+            return "priority-medium";
+        case "Baixa":
+            return "priority-low";
+        default:
+            return "";
     }
+}
 
-    function getPriorityClass(prioridade){
-        switch(prioridade){
-            case 'Alta': return 'high';
-            case 'Media': return "med";
-            case 'Baixa': return "low";
-            default: return '';
-        }
+// Editar uma tarefa
+function editTask(button) {
+    const taskItem = button.parentElement.parentElement;
+    const taskText = taskItem.querySelector("span").textContent;
+    const newTask = prompt("Editar tarefa:", taskText);
+
+    if (newTask !== null && newTask.trim() !== "") {
+        taskItem.querySelector("span").textContent = newTask.trim();
     }
+}
 
+// Remover uma tarefa
+function removeTask(button) {
+    const taskItem = button.parentElement.parentElement;
+    taskItem.remove();
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    function changePriority(taskItem) {
-        if (taskItem.classList.contains('Alta')) {
-            taskItem.classList.remove('Alta');
-            taskItem.classList.add('Media');
-        } else if (taskItem.classList.contains('Media')) {
-            taskItem.classList.remove('Media');
-            taskItem.classList.add('Baixa');
-        } else if (taskItem.classList.contains('Baixa')) {
-            taskItem.classList.remove('Baixa');
-            taskItem.classList.add('Alta');
-        }
-    }
-    function removeTask(button) {
-        const taskItem = button.parentElement.parentElement;
-        taskItem.remove();
-    }
-    
-    function completeTask(button) {
-        const taskItem = button.parentElement.parentElement;
-        taskItem.style.textDecoration = "line-through";
-    }
-    function editTask(button) {
-        const taskItem = button.parentElement.parentElement;
-        const taskText = taskItem.querySelector("span").textContent;
-        const newTask = prompt("Editar tarefa:", taskText);
-        if (newTask !== null && newTask.trim() !== "") {
-            taskItem.querySelector("span").textContent = newTask.trim();
-        }
-    }
-    
-    
+// Concluir uma tarefa
+function completeTask(button) {
+    const taskItem = button.parentElement.parentElement;
+    taskItem.style.textDecoration = "line-through";
+    taskItem.style.opacity = "0.6"; // Visualmente mostrar que está concluída
+}
